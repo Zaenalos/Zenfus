@@ -1,0 +1,385 @@
+        repeat
+            OP, args = instructions[PC].OP, regs[PC];
+        if OP <= 0x078E3DA then
+if OP <= 0x024AC4E then
+if OP <= 0x0128ED8 then
+if OP <= 0x004886F then
+if OP == 0x0008078 then
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 1];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 2];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 3];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 4];
+
+B = stack[args.B];C = stack[args.C];stack[args.A] = B - C; 
+args = regs[PC + 5];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 6];
+
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+args = regs[PC + 7];
+
+A = args.A;retlist = {stack[A](unpack(stack, A + 1, args.B))}; retnum = #retlist; 
+args = regs[PC + 8];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 9];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 10];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 11];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 12];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 13];
+
+B = stack[args.B];C = stack[args.C];stack[args.A] = B - C; 
+args = regs[PC + 14];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 15];
+
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+args = regs[PC + 16];
+
+A = args.A;retlist = {stack[A](unpack(stack, A + 1, args.B))}; retnum = #retlist; 
+args = regs[PC + 17];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 18];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 19];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 20];
+PC = PC + 19;
+
+else
+stack[args.A] = ENV[constants[args.Bx]]; 
+end
+elseif OP > 0x004886F then
+if OP > 0x0050006 then
+A = args.A; step = stack[A + 2]; index = stack[A] + step; limit = stack[A + 1]; if (step > 0 and index <= limit) or (step < 0 and index >= limit) then stack[A] = index; stack[A + 3] = index; PC = PC + args.sBx; end 
+else
+stack[args.A] = stack[args.B] 
+end
+end
+elseif OP > 0x0128ED8 then
+if OP <= 0x0160855 then
+if OP == 0x013CA7A then
+B = stack[args.B]; C = stack[args.C]; stack[args.A][B] = C 
+else
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; stack[A] = retlist[1];
+end
+elseif OP > 0x0160855 then
+if OP == 0x019F77C then
+stack[args.A] = false; 
+else
+if not stack[args.A] then PC = PC + regs[PC+1].sBx; end PC = PC + 1; 
+end
+end
+end
+elseif OP > 0x024AC4E then
+if OP <= 0x0498CD3 then
+if OP <= 0x03BA7D9 then
+if OP == 0x02932F1 then
+stack[args.A] = constants[args.Bx] 
+else
+stack[args.A] = ENV[constants[args.Bx]]; 
+end
+elseif OP > 0x03BA7D9 then
+if OP > 0x047A074 then
+stack[args.A] = stack[args.B] 
+else
+do return; end 
+end
+end
+elseif OP > 0x0498CD3 then
+if OP <= 0x0728EB2 then
+if OP > 0x06B768F then
+PC = PC + args.sBx; 
+else
+A = args.A; step = stack[A + 2]; index = stack[A] + step; limit = stack[A + 1]; if (step > 0 and index <= limit) or (step < 0 and index >= limit) then stack[A] = index; stack[A + 3] = index; PC = PC + args.sBx; end 
+end
+elseif OP > 0x0728EB2 then
+if OP == 0x07406E6 then
+A = args.A;retlist = {stack[A]()} retnum = #retlist; 
+else
+A = args.A; init = ((stack[A])); limit = ((stack[A + 1])); step = ((stack[A + 2])); cache.PC = PC; stack[A] = init - step; stack[A + 1] = limit; stack[A + 2] = step; PC = PC + args.sBx; 
+end
+end
+end
+end
+elseif OP > 0x078E3DA then
+if OP <= 0x0C811D2 then
+if OP <= 0x09D2E06 then
+if OP <= 0x08226BC then
+if OP > 0x07A9B9D then
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+else
+A = args.A; step = stack[A + 2]; index = stack[A] + step; limit = stack[A + 1]; if (step > 0 and index <= limit) or (step < 0 and index >= limit) then stack[A] = index; stack[A + 3] = index; PC = PC + args.sBx; end 
+end
+elseif OP > 0x08226BC then
+if OP > 0x08318E1 then
+stack[args.A] = ENV[constants[args.Bx]]; 
+else
+stack[args.A] = constants[args.Bx] 
+end
+end
+elseif OP > 0x09D2E06 then
+if OP <= 0x0A512CB then
+if OP > 0x0A28B1D then
+do return; end 
+else
+stack[args.A] = ENV[constants[args.Bx]]; 
+end
+elseif OP > 0x0A512CB then
+if OP == 0x0AE25F9 then
+stack[args.A] = stack[args.B] 
+else
+stack[args.A] = constants[args.Bx] 
+end
+end
+end
+elseif OP > 0x0C811D2 then
+if OP <= 0x0E186A4 then
+if OP <= 0x0D917A0 then
+if OP == 0x0D8C008 then
+B = constants[args.B]; C = stack[args.C]; stack[args.A][B] = C 
+else
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 1];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 2];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 3];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 4];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 5];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 6];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 7];
+
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+args = regs[PC + 8];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 9];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 10];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 11];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 12];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 13];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 14];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 15];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 16];
+
+proto = protos[args.Bx]; stack[args.A] = lua_wrap_state(proto, ENV, uvlist) 
+args = regs[PC + 17];
+PC = PC + 16;
+
+end
+elseif OP > 0x0D917A0 then
+if OP == 0x0DA4456 then
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 1];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 2];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 3];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 4];
+
+B = stack[args.B];C = stack[args.C];stack[args.A] = B - C; 
+args = regs[PC + 5];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 6];
+
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+args = regs[PC + 7];
+
+A = args.A;retlist = {stack[A](unpack(stack, A + 1, args.B))}; retnum = #retlist; 
+args = regs[PC + 8];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 9];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 10];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 11];
+
+stack[args.A] = ({}); 
+args = regs[PC + 12];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 13];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 14];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 15];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 16];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 17];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 18];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 19];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 20];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 21];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 22];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 23];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 24];
+
+A = args.A; init = ((stack[A])); limit = ((stack[A + 1])); step = ((stack[A + 2])); cache.PC = PC; stack[A] = init - step; stack[A + 1] = limit; stack[A + 2] = step; PC = PC + args.sBx; 
+args = regs[PC + 25];
+PC = PC + 24;
+
+else
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 1];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 2];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 3];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 4];
+
+B = stack[args.B];C = stack[args.C];stack[args.A] = B - C; 
+args = regs[PC + 5];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 6];
+
+B = args.B;result = stack[B]; for i = B + 1, args.C do result = result .. stack[i]; end stack[args.A] = result; 
+args = regs[PC + 7];
+
+A = args.A;retlist = {stack[A](unpack(stack, A + 1, args.B))}; retnum = #retlist; 
+args = regs[PC + 8];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 9];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 10];
+
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+args = regs[PC + 11];
+
+stack[args.A] = ENV[constants[args.Bx]]; 
+args = regs[PC + 12];
+
+stack[args.A] = stack[args.B][constants[args.C]]; 
+args = regs[PC + 13];
+
+A = args.A;retlist = {stack[A]()} retnum = #retlist; stack[A] = retlist[1];
+args = regs[PC + 14];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 15];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 16];
+
+stack[args.A] = stack[args.B] 
+args = regs[PC + 17];
+
+stack[args.A] = constants[args.Bx] 
+args = regs[PC + 18];
+
+A = args.A; init = ((stack[A])); limit = ((stack[A + 1])); step = ((stack[A + 2])); cache.PC = PC; stack[A] = init - step; stack[A + 1] = limit; stack[A + 2] = step; PC = PC + args.sBx; 
+args = regs[PC + 19];
+PC = PC + 18;
+
+end
+end
+elseif OP > 0x0E186A4 then
+if OP <= 0x0E75A3D then
+if OP == 0x0E6FFEC then
+stack[args.A] = stack[args.B][stack[args.C]]; 
+else
+A = args.A;retlist = {stack[A](stack[A + 1])} retnum = #retlist; 
+end
+elseif OP > 0x0E75A3D then
+if OP <= 0x0E90758 then
+stack[args.A] = stack[args.B] elseif OP > 0x0E90758 then
+if OP > 0x0F1CEF8 then
+stack[args.A] = stack[args.B] 
+else
+stack[args.A] = stack[args.B] 
+end
+end
+end
+end
+end
+end
+            PC = PC + 1;
+            cache.PC = PC;
+        until PC >= instSize
+        end 
+        return lua_wrap_state(chunk, _ENV, {})()
+        end
+        end)()
+        

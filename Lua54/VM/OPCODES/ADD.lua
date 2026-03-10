@@ -1,0 +1,20 @@
+local ADD = {};
+ADD.__index = ADD;
+
+function ADD:default(instruction)
+	instruction.statement = "stack[args.A] = stack[args.B] + stack[args.C];";
+end
+
+function ADD:optimize(instruction)
+	local A = instruction.A;
+	local B = instruction.B;
+	local C = instruction.C;
+
+	instruction.A = B;
+	instruction.C = A;
+	instruction.B = C;
+
+	instruction.statement = "stack[args.C] = stack[args.A] + stack[args.B];";
+end
+
+return ADD;

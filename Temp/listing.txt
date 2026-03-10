@@ -1,0 +1,191 @@
+
+main <Inputs/benchmark.lua:0,0> (15 instructions at 000002745e4295d0)
+0+ params, 3 slots, 1 upvalue, 1 local, 5 constants, 1 function
+	1	[1]	VARARGPREP	0
+	2	[1]	NEWTABLE 	0 3 0	; 0
+	3	[1]	EXTRAARG 	0
+	4	[2]	SETFIELD 	0 0 1k	; "Iterations" 1000000.0
+	5	[3]	GETTABUP 	1 0 2	; _ENV "print"
+	6	[3]	SETFIELD 	0 2 1	; "print"
+	7	[4]	GETTABUP 	1 0 3	; _ENV "os"
+	8	[4]	SETFIELD 	0 3 1	; "os"
+	9	[5]	GETTABUP 	1 0 4	; _ENV "tostring"
+	10	[5]	SETFIELD 	0 4 1	; "tostring"
+	11	[46]	CLOSURE  	1 0	; 000002745e429830
+	12	[46]	VARARG   	2 0	; all out
+	13	[46]	TAILCALL 	1 0 1k	; -1 in
+	14	[46]	RETURN   	1 0 1k	; all out
+	15	[46]	RETURN   	1 1 1k	; 0 out
+constants (5) for 000002745e4295d0:
+	0	S	"Iterations"
+	1	F	1000000.0
+	2	S	"print"
+	3	S	"os"
+	4	S	"tostring"
+locals (1) for 000002745e4295d0:
+	0	static	11	16
+upvalues (1) for 000002745e4295d0:
+	0	_ENV	1	0
+
+function <Inputs/benchmark.lua:7,46> (104 instructions at 000002745e429830)
+0+ params, 15 slots, 1 upvalue, 21 locals, 15 constants, 1 function
+	1	[7]	VARARGPREP	0
+	2	[8]	GETUPVAL 	0 0	; static
+	3	[9]	GETFIELD 	1 0 0	; "print"
+	4	[9]	LOADK    	2 1	; "Performance Benchmark"
+	5	[9]	CALL     	1 2 1	; 1 in 0 out
+	6	[10]	LOADK    	1 2	; 1000000
+	7	[11]	GETFIELD 	2 0 0	; "print"
+	8	[11]	LOADK    	3 3	; "Iterations: "
+	9	[11]	MOVE     	4 1
+	10	[11]	CONCAT   	3 2
+	11	[11]	CALL     	2 2 1	; 1 in 0 out
+	12	[13]	GETFIELD 	2 0 0	; "print"
+	13	[13]	LOADK    	3 4	; "CLOSURE TEST."
+	14	[13]	CALL     	2 2 1	; 1 in 0 out
+	15	[14]	GETFIELD 	2 0 5	; "os"
+	16	[14]	GETFIELD 	2 2 6	; "clock"
+	17	[14]	CALL     	2 1 2	; 0 in 1 out
+	18	[15]	MOVE     	3 2
+	19	[20]	CLOSURE  	4 0	; 000002745e429990
+	20	[21]	LOADI    	5 1
+	21	[21]	MOVE     	6 1
+	22	[21]	LOADI    	7 1
+	23	[21]	FORPREP  	5 2	; exit to 27
+	24	[22]	MOVE     	9 4
+	25	[22]	CALL     	9 1 1	; 0 in 0 out
+	26	[21]	FORLOOP  	5 3	; to 24
+	27	[24]	GETFIELD 	5 0 0	; "print"
+	28	[24]	LOADK    	6 7	; "Time:"
+	29	[24]	GETFIELD 	7 0 5	; "os"
+	30	[24]	GETFIELD 	7 7 6	; "clock"
+	31	[24]	CALL     	7 1 2	; 0 in 1 out
+	32	[24]	SUB      	7 7 2
+	33	[24]	MMBIN    	7 2 7	; __sub
+	34	[24]	LOADK    	8 8	; "s"
+	35	[24]	CONCAT   	7 2
+	36	[24]	CALL     	5 3 1	; 2 in 0 out
+	37	[26]	GETFIELD 	5 0 0	; "print"
+	38	[26]	LOADK    	6 9	; "SETTABLE TEST."
+	39	[26]	CALL     	5 2 1	; 1 in 0 out
+	40	[27]	NEWTABLE 	5 0 0	; 0
+	41	[27]	EXTRAARG 	0
+	42	[28]	GETFIELD 	6 0 10	; "tostring"
+	43	[29]	LOADK    	7 11	; "Start "
+	44	[30]	MOVE     	8 6
+	45	[30]	GETFIELD 	9 0 12	; "Idx"
+	46	[30]	CALL     	8 2 2	; 1 in 1 out
+	47	[31]	GETFIELD 	9 0 5	; "os"
+	48	[31]	GETFIELD 	9 9 6	; "clock"
+	49	[31]	CALL     	9 1 2	; 0 in 1 out
+	50	[31]	MOVE     	2 9
+	51	[32]	LOADI    	9 1
+	52	[32]	MOVE     	10 1
+	53	[32]	LOADI    	11 1
+	54	[32]	FORPREP  	9 4	; exit to 60
+	55	[33]	MOVE     	13 7
+	56	[33]	MOVE     	14 8
+	57	[33]	CONCAT   	13 2
+	58	[33]	SETTABLE 	5 8 13
+	59	[32]	FORLOOP  	9 5	; to 55
+	60	[36]	GETFIELD 	9 0 0	; "print"
+	61	[36]	LOADK    	10 7	; "Time:"
+	62	[36]	GETFIELD 	11 0 5	; "os"
+	63	[36]	GETFIELD 	11 11 6	; "clock"
+	64	[36]	CALL     	11 1 2	; 0 in 1 out
+	65	[36]	SUB      	11 11 2
+	66	[36]	MMBIN    	11 2 7	; __sub
+	67	[36]	LOADK    	12 8	; "s"
+	68	[36]	CONCAT   	11 2
+	69	[36]	CALL     	9 3 1	; 2 in 0 out
+	70	[38]	GETFIELD 	9 0 0	; "print"
+	71	[38]	LOADK    	10 13	; "GETTABLE TEST."
+	72	[38]	CALL     	9 2 1	; 1 in 0 out
+	73	[39]	GETFIELD 	9 0 5	; "os"
+	74	[39]	GETFIELD 	9 9 6	; "clock"
+	75	[39]	CALL     	9 1 2	; 0 in 1 out
+	76	[39]	MOVE     	2 9
+	77	[40]	LOADI    	9 1
+	78	[40]	MOVE     	10 1
+	79	[40]	LOADI    	11 1
+	80	[40]	FORPREP  	9 2	; exit to 84
+	81	[41]	GETTABLE 	13 5 12
+	82	[41]	SETI     	5 1 13
+	83	[40]	FORLOOP  	9 3	; to 81
+	84	[44]	GETFIELD 	9 0 0	; "print"
+	85	[44]	LOADK    	10 7	; "Time:"
+	86	[44]	GETFIELD 	11 0 5	; "os"
+	87	[44]	GETFIELD 	11 11 6	; "clock"
+	88	[44]	CALL     	11 1 2	; 0 in 1 out
+	89	[44]	SUB      	11 11 2
+	90	[44]	MMBIN    	11 2 7	; __sub
+	91	[44]	LOADK    	12 8	; "s"
+	92	[44]	CONCAT   	11 2
+	93	[44]	CALL     	9 3 1	; 2 in 0 out
+	94	[45]	GETFIELD 	9 0 0	; "print"
+	95	[45]	LOADK    	10 14	; "Total Time:"
+	96	[45]	GETFIELD 	11 0 5	; "os"
+	97	[45]	GETFIELD 	11 11 6	; "clock"
+	98	[45]	CALL     	11 1 2	; 0 in 1 out
+	99	[45]	SUB      	11 11 3
+	100	[45]	MMBIN    	11 3 7	; __sub
+	101	[45]	LOADK    	12 8	; "s"
+	102	[45]	CONCAT   	11 2
+	103	[45]	CALL     	9 3 1	; 2 in 0 out
+	104	[46]	RETURN   	9 1 1k	; 0 out
+constants (15) for 000002745e429830:
+	0	S	"print"
+	1	S	"Performance Benchmark"
+	2	I	1000000
+	3	S	"Iterations: "
+	4	S	"CLOSURE TEST."
+	5	S	"os"
+	6	S	"clock"
+	7	S	"Time:"
+	8	S	"s"
+	9	S	"SETTABLE TEST."
+	10	S	"tostring"
+	11	S	"Start "
+	12	S	"Idx"
+	13	S	"GETTABLE TEST."
+	14	S	"Total Time:"
+locals (21) for 000002745e429830:
+	0	_ENV	3	105
+	1	Iterations	7	105
+	2	Start	18	105
+	3	TStart	19	105
+	4	fun	20	105
+	5	(for state)	23	27
+	6	(for state)	23	27
+	7	(for state)	23	27
+	8	Idx	24	26
+	9	T	42	105
+	10	toStr	43	105
+	11	strt	44	105
+	12	g	47	105
+	13	(for state)	54	60
+	14	(for state)	54	60
+	15	(for state)	54	60
+	16	Idx	55	59
+	17	(for state)	80	84
+	18	(for state)	80	84
+	19	(for state)	80	84
+	20	Idx	81	83
+upvalues (1) for 000002745e429830:
+	0	static	1	0
+
+function <Inputs/benchmark.lua:16,20> (7 instructions at 000002745e429990)
+0 params, 2 slots, 1 upvalue, 0 locals, 2 constants, 0 functions
+	1	[17]	LOADFALSE	0
+	2	[17]	TEST     	0 0
+	3	[17]	JMP      	3	; to 7
+	4	[18]	GETTABUP 	0 0 0	; _ENV "print"
+	5	[18]	LOADK    	1 1	; "Start"
+	6	[18]	CALL     	0 2 1	; 1 in 0 out
+	7	[20]	RETURN0  	
+constants (2) for 000002745e429990:
+	0	S	"print"
+	1	S	"Start"
+locals (0) for 000002745e429990:
+upvalues (1) for 000002745e429990:
+	0	_ENV	1	0
