@@ -157,7 +157,7 @@ local function showBanner()
 ╚══════╝╚══════╝╚═╝░░╚══╝╚═╝░░░░░░╚═════╝░╚═════╝░]==], "cyan"))
 	print("  " .. c(Config.NameAndVersion, "white", "bright") ..
 	      "  " .. c("by " .. Config.Author, "magenta") ..
-	      "  " .. c("Lua 5.4 Obfuscator", "grey"))
+	      "  " .. c("Lua Obfuscator", "grey"))
 	print("")
 end
 

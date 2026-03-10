@@ -1,23 +1,20 @@
-# Zenfus
-```ascii
-                        ███████╗███████╗███╗░░██╗███████╗██╗░░░██╗░██████╗
-                        ╚════██║██╔════╝████╗░██║██╔════╝██║░░░██║██╔════╝
-                        ░░███╔═╝█████╗░░██╔██╗██║█████╗░░██║░░░██║╚█████╗░
-                        ██╔══╝░░██╔══╝░░██║╚████║██╔══╝░░██║░░░██║░╚═══██╗
-                        ███████╗███████╗██║░╚███║██║░░░░░╚██████╔╝██████╔╝
-                        ╚══════╝╚══════╝╚═╝░░╚══╝╚═╝░░░░░░╚═════╝░╚═════╝░
-```
+<pre align="center">
+███████╗███████╗███╗░░██╗███████╗██╗░░░██╗░██████╗
+╚════██║██╔════╝████╗░██║██╔════╝██║░░░██║██╔════╝
+░░███╔═╝█████╗░░██╔██╗██║█████╗░░██║░░░██║╚█████╗░
+██╔══╝░░██╔══╝░░██║╚████║██╔══╝░░██║░░░██║░╚═══██╗
+███████╗███████╗██║░╚███║██║░░░░░╚██████╔╝██████╔╝
+╚══════╝╚══════╝╚═╝░░╚══╝╚═╝░░░░░░╚═════╝░╚═════╝░
+</pre>
 
 **Zenfus** is just a Lua obfuscator I made 3 years ago which is based on IB2.
-
-Support for Lua 5.1, 5.2, and 5.3 is planned.
 
 ---
 
 ## How it works
 
 ```
-Lua source  →  luac5.4  →  Deserializer  →  Obfuscator  →  Generator  →  Obfuscated script
+Lua source  →  luac  →  Deserializer  →  Obfuscator  →  Generator  →  Obfuscated script
 ```
 
 1. **Compile** — the input script is compiled to standard Lua 5.4 bytecode using `luac5.4`
@@ -31,8 +28,8 @@ Lua source  →  luac5.4  →  Deserializer  →  Obfuscator  →  Generator  �
 
 | Requirement | Notes |
 |---|---|
-| **Lua 5.4** | Used to run Zenfus itself |
-| **`luac5.4`** | Must be in `PATH`; used to compile input scripts |
+| **Lua 5.3+** | Used to run Zenfus itself |
+| **`luac5.1-5.4`** | Must be in `PATH`; used to compile input scripts |
 
 > If your `luac` binary has a different name, edit the `LUAC_BINARIES` table at the top of `cli.lua`.
 
@@ -123,7 +120,7 @@ local Settings = {
 }
 ```
 
-To control the indentation style of the generated VM dispatch loop, edit the `INDENT` constant at the top of `Lua54/VM/Generator.lua`:
+To control the indentation style of the generated VM dispatch loop, edit the `INDENT` constant at the top of `Lua[version]/VM/Generator.lua`:
 
 ```lua
 local INDENT = "\t"    -- tab (default)
@@ -137,21 +134,19 @@ local INDENT = "\t"    -- tab (default)
 
 | Version | Status |
 |---|---|
-| Lua 5.4 | Fully supported |
-| Lua 5.3 | Planned |
-| Lua 5.2 | Planned |
-| Lua 5.1 | Planned |
+| Lua 5.4 | ✔️ |
+| Lua 5.3 | ❌ |
+| Lua 5.2 | ❌ |
+| Lua 5.1 | ❌ |
+| Luau | ❌ |
 
 ---
 
 ## Reminders
 
 - You must run this program with **Lua 5.3** or **above**.
-- The input file must be **valid Lua 5.4** source. Syntax errors will be caught by `luac5.4` and reported before obfuscation begins.
-- The `Temp/` directory is used for intermediate files (`luac.out`, `listing.txt`). Do not delete it while the tool is running.
 - Obfuscated output is non-deterministic — running the tool twice on the same input produces different output each time due to random ID assignment and instruction shuffling.
-- The obfuscated script embeds a full custom VM. It will be significantly larger than the original.
-- `luac5.4` must match the Lua **version used to run the script** — the deserializer targets the exact Lua 5.4 bytecode format.
+- Beautifying or minifying the final output script is now up to you; you can use any of the existing tools available online.
 
 ---
 
@@ -196,4 +191,4 @@ Please keep pull requests focused — one fix or feature per PR makes review fas
 
 ---
 
-> **PS —** I wrote this project about 3 years ago and it is not a reference for how you should actually build a Lua obfuscator. The architecture has a number of rough edges and design decisions I would not make today. That said, if you are trying to understand how Lua 5.4 bytecode deserialization works, how a custom serialization format can be built on top of it, or how a register-based VM dispatch loop is structured, this codebase should give you a solid starting point for that kind of exploration.
+> **PS —** I wrote this project about 3 years ago and it is not a reference for how you should actually build a Lua obfuscator. The architecture has a number of rough edges and design decisions I would not make today. That said, if you are trying to understand how Lua bytecode deserialization works, how a custom serialization format can be built on top of it, or how a register-based VM dispatch loop is structured, this codebase should give you a solid starting point for that kind of exploration.
